@@ -16,5 +16,5 @@
 
   - name: Add Bob
     user:
-      name: Bob
+      name: http
       state: present
