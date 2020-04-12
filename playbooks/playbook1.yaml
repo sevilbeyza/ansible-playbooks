@@ -1,20 +1,26 @@
 ---
-- name: My First Playbook
+- name: My First playbook
   hosts: all
   become: true
   become_method: sudo
+  user: centos
   tasks:
   - name: Install package
     package:
       name: httpd
-      state: installed
+      state: installed 
 
-  - name: Install telnet
+  - name: Install Telnet
     package:
       name: telnet
-      state: installed
+      state: installed 
 
   - name: Add Bob
     user:
       name: httpd
-      state: present
+      state: absent 
+
+  - name: Add Tom
+    user:
+      name: tom
+      state: present 
