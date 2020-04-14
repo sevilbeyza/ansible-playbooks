@@ -7,4 +7,4 @@
   tasks:    
   - name: here is message
     debug:
-        msg: 'You passed it {{ var1 }}'
+     msg: 'You passed it {{ var1 }}'
