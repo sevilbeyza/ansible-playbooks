@@ -1,6 +1,6 @@
 ---
 - name: Add the user 'bob'
-  hosts: 35.178.134.23
+  hosts: all
   become: true
   become_method: sudo
   tasks: 
