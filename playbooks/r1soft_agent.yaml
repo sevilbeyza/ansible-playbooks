@@ -32,7 +32,7 @@
   
   
   handlers: 
-    name: AGENT_RESTART
+  - name: AGENT_RESTART
     service: 
       name: cdp-agent 
       state: restarted
