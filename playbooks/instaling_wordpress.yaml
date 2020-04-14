@@ -49,13 +49,12 @@
     - name: move files
       shell: "mv /var/www/html/wordpress/*  /var/www/html/"
       ignore_errors: yes 
-    - name: Move index.html 
-      shell: "mv /var/www/html/index.html /tmp/"
-      ignore_errors: true
+    # - name: Move index.html 
+    #   shell: "mv /var/www/html/index.html /tmp/"
+    #   ignore_errors: true
     - name: run apache 
       systemd: 
         name: httpd 
         state: restarted 
         enabled: yes 
       ignore_errors: yes
-      
