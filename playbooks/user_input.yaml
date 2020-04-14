@@ -1,32 +1,15 @@
 ---
-- hosts: localhost
-  vars:
-    no_prompt: true
-    my_username:
+- hosts: all
+  vars_prompt:
+
+    - name: username
+      prompt: "What is your username?"
+      private: no
+
+    - name: password
+      prompt: "What is your password?"
+
   tasks:
-    - name: Get username from input if not already defined
-      pause:
-        prompt: "Enter your username"
-      register: prompt_username
-      when: my_username is not defined and no_prompt is not defined
 
-    - name: Standardize my_username variable
-      set_fact:
-        my_username: "{{ prompt_username.user_input }}"
-      when: prompt_username is not skipped
-
-    - name: Debug username
-      debug:
-        var: my_username
-
-    - name: Launch instance
-      ec2:
-         key_name: "{{ keypair }}"
-         group: "{{ security_group }}"
-         instance_type: "{{ instance_type }}"
-         image: "{{ image }}"
-         wait: true
-         region: "{{ region }}"
-         vpc_subnet_id: subnet-29e63245
-         assign_public_ip: yes
-      register: ec2    
+    - debug:
+        msg: 'Logging in as {{ username }}'
