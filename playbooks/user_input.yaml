@@ -2,7 +2,7 @@
 - hosts: localhost
   vars:
     no_prompt: true
-    my_username: example
+    my_username:
   tasks:
     - name: Get username from input if not already defined
       pause:
