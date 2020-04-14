@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  vars:
+    no_prompt: true
+    my_username: example
+  tasks:
+    - name: Get username from input if not already defined
+      pause:
+        prompt: "Enter your username"
+      register: prompt_username
+      when: my_username is not defined and no_prompt is not defined
+
+    - name: Standardize my_username variable
+      set_fact:
+        my_username: "{{ prompt_username.user_input }}"
+      when: prompt_username is not skipped
+
+    - name: Debug username
+      debug:
+        var: my_username
