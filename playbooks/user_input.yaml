@@ -1,4 +1,12 @@
 ---
+- name: My user input playbook
+  hosts: all
+  become: true
+  become_method: sudo
+  user: centos
+  tasks:
+  - name:
+
 - name: user input
   hosts: all
   vars_prompt:
