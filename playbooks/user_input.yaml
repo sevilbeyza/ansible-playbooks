@@ -10,9 +10,9 @@
 - name: user input
   hosts: all
   vars_prompt:
-   name: var1
-   prompt: "What is your username?"
-  tasks:    
-  - name: here is message
-    debug:
-     msg: 'You passed it {{ var1 }}'
+    name: var1
+    prompt: "What is your username?"
+   tasks:    
+  -  name: here is message
+     debug:
+      msg: 'You passed it {{ var1 }}'
