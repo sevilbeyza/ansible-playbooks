@@ -1,6 +1,6 @@
 ---
 - name: Manage files
-  hosts: localhost
+  hosts: localhost            #for the appling thosand machine use all
   become: true
   become_method: sudo
   user: centos
@@ -8,8 +8,8 @@
   - name: Manage etc motd
     lineinfile:
       path: "/etc/motd"
-      regexp: "^This machine is managed by SysEng"
-      line: "This machine is managed by DevOps"
+      regexp: "^This machine is managed by SysEng"  #find this line in machine 
+      line: "This machine is managed by DevOps"     #change with this line 
 
 
   - name: Block
