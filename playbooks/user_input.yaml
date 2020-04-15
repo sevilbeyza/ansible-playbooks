@@ -1,18 +1,17 @@
 ---
-- name: My user input playbook
-  hosts: all
+- name: Create ec2-instance
+  hosts: localhost
   become: true
   become_method: sudo
-  user: centos
+  gather_facts: False
   tasks:
-  - name:
-
-- name: user input
-  hosts: all
-  vars_prompt:
-    name: var1
-    prompt: "What is your username?"
-   tasks:    
-  -  name: here is message
-     debug:
-      msg: 'You passed it {{ var1 }}'
+    - name: Launch instance
+       ec2:
+        key_name: Bastion
+        instance_type: t2.medium
+        image: ami-01a6e31ac994bbc09
+        wait: true
+        region: eu-west-2 
+        vpc_subnet_id: subnet-003488d302b440692
+        assign_public_ip: yes
+      register: ec2
