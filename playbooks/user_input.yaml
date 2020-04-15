@@ -6,7 +6,7 @@
   gather_facts: False
   tasks:
     - name: Launch instance
-       ec2:
+      ec2:
         key_name: Bastion
         instance_type: t2.medium
         image: ami-01a6e31ac994bbc09
