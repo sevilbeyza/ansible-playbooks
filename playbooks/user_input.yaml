@@ -7,7 +7,7 @@
   tasks:
     - name: Launch instance
       ec2:
-        key_name: Bastion
+        key_name: SevilBastion
         instance_type: t2.medium
         image: ami-01a6e31ac994bbc09
         wait: true
